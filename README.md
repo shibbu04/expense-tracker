@@ -1,106 +1,187 @@
-# Expense Tracker - Setup Guide
+# 💸 Expense Tracker App – PHP + MySQL
 
-## Prerequisites
-- PHP 7.4 or higher
-- MySQL 5.7 or higher
-- Web server (Apache/Nginx) or PHP built-in server
+A simple and elegant web application to **track your daily expenses**. Built using **PHP and MySQL**, this app helps users **add, view, filter, and summarize** their expenses with ease.
 
-## Installation Steps
+---
 
-### 1. Download and Extract
-- Download all project files
-- Extract to your web server directory (e.g., `htdocs`, `www`, or `public_html`)
+## 🎯 Objective
 
-### 2. Database Setup
-- Start your MySQL server
-- The application will automatically create the database and table on first run
-- Default database name: `expense_tracker`
-- Default MySQL credentials: `root` with no password
+To build a PHP-MySQL powered application that allows users to:
 
-### 3. Configuration (if needed)
-Edit `config/database.php` if your MySQL setup is different:
-```php
-private $host = 'localhost';        // Your MySQL host
-private $db_name = 'expense_tracker'; // Database name
-private $username = 'root';         // MySQL username
-private $password = '';             // MySQL password
-```
+* Add and manage their daily expenses
+* Filter expenses by month and year
+* Calculate total expenditure over selected periods
 
-### 4. Running the Application
+---
 
-#### Option A: Using PHP Built-in Server (Recommended for development)
+## 🛠 Skills Practiced
+
+* PHP CRUD operations
+* MySQL database integration
+* Form handling & session basics
+* Data filtering and aggregation
+* Modular and secure backend logic
+
+---
+
+## ✅ Core Features
+
+### 1. Add Expense
+
+📝 Users can record new expenses by submitting:
+
+* Date of expense
+* Amount spent
+* Category (e.g., Food, Transport, Utilities)
+* Description (optional)
+
+### 2. View All Expenses
+
+📋 Displays all expense entries in a **tabular format** with:
+
+* Date
+* Category
+* Amount
+* Description
+
+### 3. Filter by Month & Year
+
+📆 Users can filter expenses by:
+
+* **Month** (e.g., January, February, etc.)
+* **Year**
+  💡 This helps users analyze their spending behavior.
+
+### 4. Total Expense Summary
+
+💰 Calculates the **total spending** for the selected time period and displays it clearly.
+
+---
+
+## 🚀 Additional Features
+
+* 🔄 Automatic table creation on first load
+* 🧮 Inline total calculation
+* 💡 Debug mode for testing database connectivity
+* 🧪 API endpoints for Add/Get/Delete
+* 📱 Responsive UI for mobile and desktop
+* 🔐 Secure form handling using **prepared statements**
+
+---
+
+## 📦 Download & Run (Localhost)
+
+### ✅ Prerequisites
+
+* PHP 7.4 or higher
+* MySQL 5.7+
+* Apache/Nginx or PHP built-in server
+
+---
+
+## 🧩 Setup Guide
+
+### 1. Download Project
+
 ```bash
-# Navigate to project directory
-cd expense-tracker
-
-# Start PHP server
-php -S localhost:8000
-
-# Open browser and visit: http://localhost:8000
+git clone https://github.com/shibbu04/expense_tracker.git
 ```
 
-#### Option B: Using XAMPP/WAMP/MAMP
-1. Place project folder in `htdocs` (XAMPP) or `www` (WAMP/MAMP)
-2. Start Apache and MySQL services
+> Or manually download and extract into your web root (`htdocs`, `www`, etc.)
+
+---
+
+### 2. Database Configuration
+
+Default MySQL setup:
+
+```php
+private $host = 'localhost';
+private $db_name = 'expense_tracker';
+private $username = 'root';
+private $password = '';
+```
+
+⚙ Edit `config/database.php` to match your MySQL credentials.
+
+---
+
+### 3. Run the App
+
+#### 🔹 Option A: PHP Built-in Server
+
+```bash
+cd expense-tracker
+php -S localhost:8000
+```
+
+Open in browser: `http://localhost:8000`
+
+---
+
+#### 🔹 Option B: XAMPP/WAMP/MAMP
+
+1. Place project in `htdocs` or `www`
+2. Start Apache and MySQL
 3. Visit: `http://localhost/expense-tracker`
 
-#### Option C: Using Apache/Nginx
-1. Configure virtual host pointing to project directory
-2. Ensure MySQL is running
-3. Visit your configured domain/URL
+---
 
-## Features
-✅ Add expenses with validation
-✅ Real-time expense filtering
-✅ Mobile-responsive design
-✅ Automatic database setup
-✅ Secure form handling
-✅ Modern UI with animations
+## 🔍 File Structure
 
-## Troubleshooting
-
-### Database Connection Issues
-- Check if MySQL is running
-- Verify credentials in `config/database.php`
-- Ensure PHP has PDO MySQL extension enabled
-
-### Permission Issues
-- Ensure web server has read/write permissions to project directory
-- Check file permissions (644 for files, 755 for directories)
-
-### PHP Version Issues
-- Ensure PHP 7.4+ is installed
-- Check if required extensions are enabled: `pdo`, `pdo_mysql`
-
-## File Structure
 ```
 expense-tracker/
-├── config/database.php     # Database configuration
-├── includes/               # Header and footer
-├── assets/style.css       # Custom CSS
-├── index.php              # Main application
-├── add_expense.php        # Add expense handler
-├── get_expenses.php       # Get expenses API
-└── README.md             # This file
+├── config/              # DB config
+├── includes/            # Shared header/footer
+├── assets/              # CSS, images
+├── index.php            # Dashboard
+├── add_expense.php      # Add handler
+├── get_expenses.php     # Fetch API
+├── delete_expense.php   # Delete API
+├── debug.php            # Debug utility
+└── README.md
 ```
 
-## Security Features
-- SQL injection protection using prepared statements
-- Input validation and sanitization
-- CSRF protection ready (can be added)
-- XSS protection through proper escaping
-```
+---
 
-## Project Complete! 🎉
+## 🧠 Troubleshooting
 
-This expense tracker includes:
-- ✅ Clean, modern UI with unique color scheme
-- ✅ Fully responsive design
-- ✅ Real-time expense filtering
-- ✅ Secure PHP backend
-- ✅ Auto-database setup
-- ✅ Mobile-friendly interface
-- ✅ Form validation
-- ✅ Smooth animations
-- ✅ Modular code structure
-```
+### ❌ Can’t Connect to DB?
+
+* Check MySQL is running
+* Ensure DB credentials are correct in `config/database.php`
+* Verify `pdo` and `pdo_mysql` extensions are enabled in PHP
+
+### ❌ Page not loading?
+ * Check PHP version (must be 7.4+)
+ * Look for errors in browser/console/debug.php
+---
+
+## 🔐 Security Practices
+
+* ✅ Prepared statements to prevent SQL Injection
+* ✅ HTML escaping to prevent XSS
+* ✅ Basic input validation
+* 🔄 CSRF ready structure (can be extended)
+
+---
+
+## ✅ Project Completed!
+
+### Final Highlights:
+
+* ✔ Simple & modern UI
+* ✔ Clean code with modular structure
+* ✔ Real-time filter & total updates
+* ✔ Secure backend
+* ✔ Automatic DB setup
+* ✔ Designed for learning and improvement
+
+---
+
+### 🔗 Connect With Me
+ * 🌐 Portfolio: https://shivam04.tech
+
+ * 💼 GitHub: https://github.com/shibbu04
+
+ * 🔗 LinkedIn: https://linkedin.com/in/shivamsingh57680
