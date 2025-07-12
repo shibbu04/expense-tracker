@@ -84,7 +84,7 @@ To build a PHP-MySQL powered application that allows users to:
 ### 1. Download Project
 
 ```bash
-git clone https://github.com/shibbu04/expense_tracker.git
+git clone https://github.com/shibbu04/expense-tracker.git
 ```
 
 > Or manually download and extract into your web root (`htdocs`, `www`, etc.)
